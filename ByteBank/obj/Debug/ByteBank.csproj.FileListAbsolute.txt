@@ -1,0 +1,7 @@
+C:\Users\manij\OneDrive\Documentos\programação\C#\Alura\csharp-parte-4-Entendendo exceções\ByteBank\bin\Debug\ByteBank.exe.config
+C:\Users\manij\OneDrive\Documentos\programação\C#\Alura\csharp-parte-4-Entendendo exceções\ByteBank\bin\Debug\ByteBank.exe
+C:\Users\manij\OneDrive\Documentos\programação\C#\Alura\csharp-parte-4-Entendendo exceções\ByteBank\bin\Debug\ByteBank.pdb
+C:\Users\manij\OneDrive\Documentos\programação\C#\Alura\csharp-parte-4-Entendendo exceções\ByteBank\obj\Debug\ByteBank.csproj.AssemblyReference.cache
+C:\Users\manij\OneDrive\Documentos\programação\C#\Alura\csharp-parte-4-Entendendo exceções\ByteBank\obj\Debug\ByteBank.csproj.CoreCompileInputs.cache
+C:\Users\manij\OneDrive\Documentos\programação\C#\Alura\csharp-parte-4-Entendendo exceções\ByteBank\obj\Debug\ByteBank.exe
+C:\Users\manij\OneDrive\Documentos\programação\C#\Alura\csharp-parte-4-Entendendo exceções\ByteBank\obj\Debug\ByteBank.pdb
