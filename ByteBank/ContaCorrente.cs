@@ -11,24 +11,9 @@ namespace ByteBank
         public static int TotalDeContasCriadas { get; private set; }
 
 
-        private int _agencia;
-        public int Agencia
-        {
-            get
-            {
-                return _agencia;
-            }
-            set
-            {
-                if (value <= 0)
-                {
-                    return;
-                }
+        public int Agencia{ get; }
 
-                _agencia = value;
-            }
-        }
-        public int Numero { get; set; }
+        public int Numero { get; }
 
         private double _saldo = 100;
 
@@ -50,12 +35,22 @@ namespace ByteBank
         }
 
 
-        public ContaCorrente(int agencia, int numero)
+        public ContaCorrente(int agencia, int conta)
         {
-            Agencia = agencia;
-            Numero = numero;
+            if (agencia <= 0)
+            {
+                throw new System.ArgumentException("O argumento agencia deve ser maior que 0.", nameof(agencia));
+            }
 
-            TaxaOperacao = 30;
+            if (conta <= 0)
+            {
+                throw new System.ArgumentException("O argumento numero deve ser maior que 0.", nameof(conta));
+            }
+
+            Agencia = agencia;
+            Numero = conta;
+
+            TaxaOperacao = 30 / TotalDeContasCriadas;
 
             TotalDeContasCriadas++;
         }

@@ -5,52 +5,55 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ByteBank
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
             try
             {
-                Metodo();
+                ContaCorrente conta = new ContaCorrente(0, 0);
             }
-            catch (NullReferenceException erro)
+            catch (ArgumentException ex)
             {
-                Console.WriteLine(erro.StackTrace);
-                Console.WriteLine("Aconteceu um erro!");
+                Console.WriteLine("Argumento com problema: " + ex.ParamName);
+                Console.WriteLine("Ocorreu uma exceção  do tipo ArgumentException");
+                Console.WriteLine(ex.Message);
             }
-                
-                Console.ReadLine();
-            }
-            //Teste com a cadeia de chamada:
-            //Metodo -> TestaDivisao -> Dividir
-            private static void Metodo()
+            catch (Exception ex)
             {
-                TestaDivisao(0);
+                Console.WriteLine(ex.Message);
             }
 
-            private static void TestaDivisao(int divisor)
-            {
-                try
-                {
-                    int resultado = Dividir(10, divisor);
-                    Console.WriteLine("Resultado da divisão de 10 por " + divisor + " é " + resultado);
-                }
-                catch (DivideByZeroException erro)
-                {
-                    Console.WriteLine(erro.Message);
-                    Console.WriteLine(erro.StackTrace);
-                    Console.WriteLine("Não e possivel fazer uma divisão por zero!");
-                }
-                
-            }
+            //Metodo();
+            Console.ReadLine();
+        }
 
-            private static int Dividir(int numero, int divisor)
-            {
-                ContaCorrente conta = null;
-                Console.WriteLine(conta.Saldo);
+        //Teste com a cadeia de chamada:
+        //Metodo -> TestaDivisao -> Dividir
 
+        private static void Metodo()
+        {
+            TestaDivisao(0);
+        }
+
+        private static void TestaDivisao(int divisor)
+        {
+            int resultado = Dividir(10, divisor);
+            Console.WriteLine("Resultado da divisão de 10 por " + divisor + " é " + resultado);
+        }
+
+        private static int Dividir(int numero, int divisor)
+        {
+            try
+            {
                 return numero / divisor;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Exceção com numero= " + numero + " e divisor= " + divisor);
+                throw;
             }
         }
     }
+}
