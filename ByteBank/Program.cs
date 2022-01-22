@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,13 +13,56 @@ namespace ByteBank
         {
             try
             {
+                CarregarContas();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Cath no metodo main");
+            }
+            
+            Console.ReadLine();
+        }
+
+        private static void CarregarContas()
+        {
+            using(LeitorDeArquivo leitor = new LeitorDeArquivo("teste.txt"))
+            {
+                leitor.LerProximaLinha();
+            }
+
+            // ---------------------------------------------
+
+            //LeitorDeArquivo leitor = null;
+
+            //try
+            //{
+            //    leitor = new LeitorDeArquivo("contasl.txt");
+
+            //    leitor.LerProximaLinha();
+            //    leitor.LerProximaLinha();
+            //    leitor.LerProximaLinha();
+            //}
+            //finally
+            //{
+            //    Console.WriteLine("Exceutando o finally");
+            //    if(leitor != null)
+            //    {
+            //        leitor.Fechar();
+            //    }
+            //}
+        }
+
+        private static void TestaInnerException()
+        {
+            try
+            {
                 ContaCorrente conta1 = new ContaCorrente(4564, 789684);
                 ContaCorrente conta2 = new ContaCorrente(7891, 456794);
 
                 //conta1.Transferir(100000, conta2);
                 conta1.Sacar(10000);
             }
-            catch(OperacaoFinanceiraException e)
+            catch (OperacaoFinanceiraException e)
             {
                 Console.WriteLine(e.Message);
                 Console.WriteLine(e.StackTrace);
@@ -66,7 +110,6 @@ namespace ByteBank
             //}
 
             //Metodo();
-            Console.ReadLine();
         }
 
         //Teste com a cadeia de chamada:
